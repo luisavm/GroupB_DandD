@@ -68,6 +68,8 @@
     dropZones.forEach(zone => {
     // removeChild
     while (zone.firstChild) zone.removeChild(zone.firstChild);
+    // ouputs a message and writes into the console of the browser Chrome
+    console.log("Ciao, see you later!");
     });
     }
     // for (var i = 0, zone = dropZones.length; i < zone; i++) {
