@@ -23,7 +23,7 @@
 
       initDrag();
 
-   }    
+   }
 
 
    // drag and drop functionality goes here
@@ -40,7 +40,7 @@
 
    }
 
-   // handle dragover and drop 
+   // handle dragover and drop
    dropZones.forEach(zone => {
       zone.addEventListener("dragover", function(e) {
          e.preventDefault();
@@ -58,16 +58,25 @@
 
    });
 
-
+   //Reset each of the drop zones
    function resetPuzzlePieces(){
    	//empty the thumbnail container
    	piecesBoards.innerHTML = "";
    	createPuzzlePieces(this.dataset.puzzleref);
+    debugger;
+    piecesBoards.innerHTML = "";
+    createPuzzlePieces(this.dataset.puzzleref);
+    // foreach has specify a callback function in the array
+    dropZones.forEach(zone => {
+    console.log(zone);
+    // empty the drop zones
+    zone.innerHTML = "";
+    });
    }
 
    //event handling down here
    puzzleSelectors.forEach(puzzle => puzzle.addEventListener("click", resetPuzzlePieces));
    createPuzzlePieces(0);
-   
+
 
 })();
