@@ -30,38 +30,37 @@
 
    function initDrag() {
       piecesBoards.querySelectorAll('img').forEach(img => {
-         img.addEventListener("dragstart", function(e) {
-            // e.preventDefault();
-            console.log('draggin...');
-
-            e.dataTransfer.setData("text/plain", this.id)
+      img.addEventListener("dragstart", function(e) {
+      // e.preventDefault();
+      console.log('draggin...');
+      e.dataTransfer.setData("text/plain", this.id)
          });
       });
 
    }
 
-         // handle dragover and drop
-         dropZones.forEach(zone => {
-         zone.addEventListener("dragover", function(e) {
-         e.preventDefault();
-         console.log("you dragged over me!");
+      // handle dragover and drop
+      dropZones.forEach(zone => {
+      zone.addEventListener("dragover", function(e) {
+      e.preventDefault();
+      console.log("you dragged over me!");
       });
 
-         zone.addEventListener("drop", function(e) {
-         e.preventDefault();
-         console.log("you dropped sumpin on me!");
+       zone.addEventListener("drop", function(e) {
+        e.preventDefault();
+        console.log("you dropped sumpin on me!");
 
          let piece = e.dataTransfer.getData("text/plain");
          e.target.appendChild(document.querySelector(`#${piece}`));
 
       });
 
-   });
+      });
 
    //Reset each of the drop zones
    function resetPuzzlePieces(){
     //empty the thumbnail container
-    debugger;
+    // debugger;
    	piecesBoards.innerHTML = "";
    	createPuzzlePieces(this.dataset.puzzleref);
     // foreach has specify a callback function in the array
