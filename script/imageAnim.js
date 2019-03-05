@@ -37,7 +37,7 @@
          });
       });
 
-   }
+      }
 
       // handle dragover and drop
       dropZones.forEach(zone => {
@@ -51,7 +51,16 @@
         console.log("you dropped sumpin on me!");
 
          let piece = e.dataTransfer.getData("text/plain");
-         e.target.appendChild(document.querySelector(`#${piece}`));
+         // fix drop zones
+         if (zone.children.length > 0) {
+            return;
+            }
+
+          else {
+            e.target.appendChild(document.querySelector(`#${piece}`));
+            console.log("Oh no");
+          }
+
 
       });
 
@@ -72,8 +81,6 @@
     console.log("Ciao, see you later!");
     });
     }
-    // for (var i = 0, zone = dropZones.length; i < zone; i++) {
-    // someFn(dropZones[i]);
 
    //event handling down here
    puzzleSelectors.forEach(puzzle => puzzle.addEventListener("click", resetPuzzlePieces));
